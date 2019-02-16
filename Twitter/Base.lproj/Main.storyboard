@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="85.599999999999994" y="167.76611694152925"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Login-->
         <scene sceneID="thF-SK-b67">
             <objects>
                 <tableViewController id="UIe-TW-NuT" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="UIe-TW-NuT" id="duW-Fm-kXA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="c8m-7t-zwf"/>
+                    <navigationItem key="navigationItem" title="Login" id="c8m-7t-zwf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKm-Yp-L4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,6 +92,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K5d-pc-MMR">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.83995108220000003" green="0.96620064210000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="UIe-TW-NuT" kind="relationship" relationship="rootViewController" id="RhM-7N-w4z"/>
