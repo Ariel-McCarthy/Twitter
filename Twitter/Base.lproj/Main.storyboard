@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="MfQ-ia-Cn7">
             <objects>
-                <viewController id="eFw-EN-Yvx" sceneMemberID="viewController">
+                <viewController id="eFw-EN-Yvx" customClass="LoginViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m7r-Sc-6ve">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,6 +36,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="loginButton:" destination="eFw-EN-Yvx" eventType="touchUpInside" id="YLd-J6-I7P"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.83995108220000003" green="0.96620064210000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
