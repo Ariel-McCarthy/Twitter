@@ -19,19 +19,46 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loadTweets()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    var tweetArray = [NSDictionary]()
+    var numTweets: Int!
+    
+    
+    func loadTweets()
+    {
+        let twitterURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        let twitterParameters = ["count": 197]
+        
+        TwitterAPICaller.client?.getDictionariesRequest(url: twitterURL, parameters: twitterParameters, success: {(tweets: [NSDictionary]) in
+            
+            self.tweetArray.removeAll()
+            for tweet in tweets
+            {
+                self.tweetArray.append(tweet)
+            }
+            self.tableView.reloadData()
+            
+        }, failure: {(Error) in print("Could not load")
+        })
+    }
+    
+    
+
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for:  indexPath) as! TweetTableViewCell
         
         cell.userNameLabel.text = "name"
-        cell.tweetLabel.text = "tweets"
+        cell.tweetLabel.text = tweetArray[indexPath.row]["text"] as! String
         
         return cell
     }
@@ -39,13 +66,13 @@ class HomeTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 7
+        return tweetArray.count
     }
 
     /*
