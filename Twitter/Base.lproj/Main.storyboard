@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="85.599999999999994" y="167.76611694152925"/>
         </scene>
-        <!--Login-->
+        <!--Home-->
         <scene sceneID="thF-SK-b67">
             <objects>
                 <tableViewController id="UIe-TW-NuT" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="124" id="Ksm-pf-egI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="124" id="Ksm-pf-egI" customClass="TweetTableViewCell" customModule="Twitter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="124"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ksm-pf-egI" id="k44-T2-Vcn">
@@ -114,6 +114,11 @@
                                         <constraint firstItem="KTn-Mt-dVg" firstAttribute="top" secondItem="eeE-m7-Ajg" secondAttribute="bottom" constant="8" symbolic="YES" id="yCr-PY-Xxb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profileImageView" destination="eqq-wZ-qbx" id="8ju-NP-7B3"/>
+                                    <outlet property="tweetLabel" destination="KTn-Mt-dVg" id="WTM-oJ-P0v"/>
+                                    <outlet property="userNameLabel" destination="eeE-m7-Ajg" id="W5B-LI-9VL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -121,7 +126,7 @@
                             <outlet property="delegate" destination="UIe-TW-NuT" id="duW-Fm-kXA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Login" id="c8m-7t-zwf">
+                    <navigationItem key="navigationItem" title="Home" id="c8m-7t-zwf">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="avq-Q7-hOu">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
