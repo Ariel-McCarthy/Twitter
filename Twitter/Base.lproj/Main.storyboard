@@ -59,7 +59,7 @@
         <!--Login-->
         <scene sceneID="thF-SK-b67">
             <objects>
-                <tableViewController id="UIe-TW-NuT" sceneMemberID="viewController">
+                <tableViewController id="UIe-TW-NuT" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vih-Co-R0E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,14 @@
                             <outlet property="delegate" destination="UIe-TW-NuT" id="duW-Fm-kXA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Login" id="c8m-7t-zwf"/>
+                    <navigationItem key="navigationItem" title="Login" id="c8m-7t-zwf">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="avq-Q7-hOu">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logout:" destination="UIe-TW-NuT" id="HNb-QD-eIZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKm-Yp-L4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
