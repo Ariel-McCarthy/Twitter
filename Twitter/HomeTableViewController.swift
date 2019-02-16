@@ -51,9 +51,6 @@ class HomeTableViewController: UITableViewController {
         })
     }
     
-    
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for:  indexPath) as! TweetTableViewCell
         
@@ -61,6 +58,14 @@ class HomeTableViewController: UITableViewController {
         
         cell.userNameLabel.text = user["name"] as? String
         cell.tweetLabel.text = tweetArray[indexPath.row]["text"] as? String
+        
+        let imageURL = URL(string: (user["profile_image_url_https"] as? String)!)
+        let data = try? Data(contentsOf: imageURL!)
+        
+        if let imageData = data
+        {
+            cell.profileImageView.image = UIImage(data: imageData)
+        }
         
         return cell
     }
