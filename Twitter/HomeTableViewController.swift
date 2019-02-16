@@ -57,8 +57,10 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for:  indexPath) as! TweetTableViewCell
         
-        cell.userNameLabel.text = "name"
-        cell.tweetLabel.text = tweetArray[indexPath.row]["text"] as! String
+        let user = tweetArray[indexPath.row]["user"] as! NSDictionary
+        
+        cell.userNameLabel.text = user["name"] as? String
+        cell.tweetLabel.text = tweetArray[indexPath.row]["text"] as? String
         
         return cell
     }
