@@ -21,6 +21,8 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         
         loadTweets()
+        myRefreshContol.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+        tableView.refreshControl = myRefreshContol
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,14 +33,15 @@ class HomeTableViewController: UITableViewController {
     
     var tweetArray = [NSDictionary]()
     var numTweets: Int!
+    let myRefreshContol = UIRefreshControl()
     
-    
-    func loadTweets()
+    @objc func loadTweets()
     {
+        numTweets = 25
         let twitterURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let twitterParameters = ["count": 197]
+        let twitterParameters = ["count": numTweets]
         
-        TwitterAPICaller.client?.getDictionariesRequest(url: twitterURL, parameters: twitterParameters, success: {(tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: twitterURL, parameters: twitterParameters as [String : Any], success: {(tweets: [NSDictionary]) in
             
             self.tweetArray.removeAll()
             for tweet in tweets
@@ -46,11 +49,34 @@ class HomeTableViewController: UITableViewController {
                 self.tweetArray.append(tweet)
             }
             self.tableView.reloadData()
+            self.myRefreshContol.endRefreshing()
             
         }, failure: {(Error) in print("Could not load")
         })
     }
     
+    func loadMoreTweets(){
+        let twitterURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        numTweets = numTweets + 25
+        
+        let twitterParams = ["count": numTweets]
+        TwitterAPICaller.client?.getDictionariesRequest(url: twitterURL, parameters: twitterParams as [String : Any], success: { (tweets: [NSDictionary]) in
+            
+            self.tweetArray.removeAll()
+            for tweet in tweets{
+                self.tweetArray.append(tweet)
+            }
+            
+            self.tableView.reloadData()
+            self.myRefreshContol.endRefreshing()
+            
+        }, failure: { (Error) in
+            print("Could not load")
+        })
+        
+    }
+    
+    // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for:  indexPath) as! TweetTableViewCell
         
@@ -70,8 +96,6 @@ class HomeTableViewController: UITableViewController {
         return cell
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -80,6 +104,12 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return tweetArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == tweetArray.count{
+            loadMoreTweets()
+        }
     }
 
     /*
