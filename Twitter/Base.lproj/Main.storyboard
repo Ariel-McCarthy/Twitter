@@ -127,7 +127,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="c8m-7t-zwf">
-                        <barButtonItem key="leftBarButtonItem" title="Tweets" id="vju-7J-5sh">
+                        <barButtonItem key="leftBarButtonItem" title="Create Tweet" id="vju-7J-5sh">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="gYP-1O-Rnk" kind="presentation" id="j3C-FQ-XoV"/>
@@ -149,35 +149,38 @@
         <scene sceneID="rPV-xf-2jZ">
             <objects>
                 <viewController id="KEK-Eg-rp5" customClass="TweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="04B-KI-O6t">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="04B-KI-O6t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Example text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pLx-gb-UAL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pLx-gb-UAL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.83995108220000003" green="0.96620064210000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="2PB-I4-Z40"/>
                                     <constraint firstAttribute="height" constant="128" id="Unx-Qg-XEC"/>
                                 </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pLx-gb-UAL" firstAttribute="leading" secondItem="oEg-QS-wEw" secondAttribute="leading" id="59l-tL-3Ze"/>
                             <constraint firstItem="pLx-gb-UAL" firstAttribute="top" secondItem="oEg-QS-wEw" secondAttribute="top" id="IdO-PB-aYO"/>
+                            <constraint firstItem="pLx-gb-UAL" firstAttribute="trailing" secondItem="oEg-QS-wEw" secondAttribute="trailing" id="Kvz-zF-xQA"/>
+                            <constraint firstItem="pLx-gb-UAL" firstAttribute="top" secondItem="oEg-QS-wEw" secondAttribute="top" id="OPA-s1-u2m"/>
                             <constraint firstItem="pLx-gb-UAL" firstAttribute="top" secondItem="oEg-QS-wEw" secondAttribute="top" id="Up1-Fa-J6l"/>
                             <constraint firstItem="pLx-gb-UAL" firstAttribute="leading" secondItem="oEg-QS-wEw" secondAttribute="leading" id="VU9-84-Hg2"/>
                             <constraint firstItem="pLx-gb-UAL" firstAttribute="trailing" secondItem="oEg-QS-wEw" secondAttribute="trailing" id="Y4T-fA-GOc"/>
                             <constraint firstItem="oEg-QS-wEw" firstAttribute="trailing" secondItem="pLx-gb-UAL" secondAttribute="trailing" id="cPK-Hh-DGq"/>
+                            <constraint firstItem="pLx-gb-UAL" firstAttribute="bottom" secondItem="oEg-QS-wEw" secondAttribute="bottom" id="md6-h1-2oF"/>
+                            <constraint firstItem="pLx-gb-UAL" firstAttribute="leading" secondItem="oEg-QS-wEw" secondAttribute="leading" id="rla-Qu-vxd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oEg-QS-wEw"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bn8-Kn-EAV">
-                        <barButtonItem key="leftBarButtonItem" title="Tweets" id="7YS-zc-uAm">
+                        <barButtonItem key="leftBarButtonItem" title="Send Tweet" id="7YS-zc-uAm">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="tweetButton:" destination="KEK-Eg-rp5" id="Bou-4w-aVN"/>

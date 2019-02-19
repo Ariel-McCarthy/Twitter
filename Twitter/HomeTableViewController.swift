@@ -20,9 +20,9 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadTweets()
-        myRefreshContol.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
-        tableView.refreshControl = myRefreshContol
+        numTweets = 25
+        refreshContol.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+        tableView.refreshControl = refreshContol
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,13 +31,20 @@ class HomeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        loadTweets()
+    }
+    
     var tweetArray = [NSDictionary]()
     var numTweets: Int!
-    let myRefreshContol = UIRefreshControl()
+    let refreshContol = UIRefreshControl()
     
     @objc func loadTweets()
     {
-        numTweets = 25
+        
         let twitterURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let twitterParameters = ["count": numTweets]
         
@@ -49,7 +56,7 @@ class HomeTableViewController: UITableViewController {
                 self.tweetArray.append(tweet)
             }
             self.tableView.reloadData()
-            self.myRefreshContol.endRefreshing()
+            self.refreshContol.endRefreshing()
             
         }, failure: {(Error) in print("Could not load")
         })
@@ -68,7 +75,7 @@ class HomeTableViewController: UITableViewController {
             }
             
             self.tableView.reloadData()
-            self.myRefreshContol.endRefreshing()
+            self.refreshContol.endRefreshing()
             
         }, failure: { (Error) in
             print("Could not load")
@@ -166,5 +173,4 @@ class HomeTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
