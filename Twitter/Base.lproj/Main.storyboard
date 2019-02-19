@@ -190,6 +190,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tweetText" destination="pLx-gb-UAL" id="pps-vC-QN6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tP-DI-OjR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
