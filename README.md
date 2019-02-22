@@ -25,13 +25,12 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/bJ00IAgGMA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-📝 `NOTE` Paste this template at the top of your existing `README.md` file from part 1 of this assignment. (🚫 Remove this paragraph after after checking off completed user stories)
 
 # Twitter - Part II
 
 This is a basic twitter app to view, compose, favorite, and retweet tweets.
 
-Time spent: **X** hours spent in total
+Time spent: **4** hours spent in total
 
 ## User Stories
 
