@@ -104,6 +104,8 @@ class HomeTableViewController: UITableViewController {
         
         cell.userNameLabel.text = user["name"] as? String
         cell.tweetLabel.text = tweetArray[indexPath.row]["text"] as? String
+        //cell.timeLabel.text = getRelativeTime(timeString: (tweetArray[indexPath.row]["created_at" as? String])!)
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
         
         let imageURL = URL(string: (user["profile_image_url_https"] as? String)!)
         let data = try? Data(contentsOf: imageURL!)
@@ -112,6 +114,9 @@ class HomeTableViewController: UITableViewController {
         {
             cell.profileImageView.image = UIImage(data: imageData)
         }
+        
+
+        
         
         return cell
     }

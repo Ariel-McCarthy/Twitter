@@ -72,8 +72,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Tweeter Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeE-m7-Ajg">
-                                            <rect key="frame" x="97" y="0.0" width="271" height="20.5"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" text="Tweeter Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeE-m7-Ajg">
+                                            <rect key="frame" x="97" y="0.0" width="116" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -98,6 +98,9 @@
                                                 <constraint firstAttribute="height" constant="30" id="flt-Ad-Waj"/>
                                             </constraints>
                                             <state key="normal" image="retweet-icon"/>
+                                            <connections>
+                                                <action selector="reTweeting:" destination="Ksm-pf-egI" eventType="touchUpInside" id="eEr-O4-IBh"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOf-W7-dho" userLabel="Favorite Button">
                                             <rect key="frame" x="336" y="116" width="30" height="30"/>
@@ -106,28 +109,43 @@
                                                 <constraint firstAttribute="height" constant="30" id="zse-M3-Qjp"/>
                                             </constraints>
                                             <state key="normal" image="favor-icon"/>
+                                            <connections>
+                                                <action selector="favoriting:" destination="Ksm-pf-egI" eventType="touchUpInside" id="NFI-QA-5QH"/>
+                                            </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeH-50-8bM">
+                                            <rect key="frame" x="299" y="0.0" width="67" height="20.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.83995108220000003" green="0.96620064210000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="xT6-eL-XdL" firstAttribute="bottom" secondItem="k44-T2-Vcn" secondAttribute="bottomMargin" constant="7" id="4hk-xZ-1an"/>
                                         <constraint firstItem="KTn-Mt-dVg" firstAttribute="leading" secondItem="eqq-wZ-qbx" secondAttribute="trailing" constant="7" id="AEz-Fc-bGu"/>
                                         <constraint firstItem="iOf-W7-dho" firstAttribute="leading" secondItem="xT6-eL-XdL" secondAttribute="trailing" constant="7" id="BL8-gz-jx0"/>
+                                        <constraint firstItem="QeH-50-8bM" firstAttribute="leading" secondItem="eeE-m7-Ajg" secondAttribute="trailing" constant="14" id="JSp-F1-WsD"/>
+                                        <constraint firstAttribute="trailing" secondItem="QeH-50-8bM" secondAttribute="trailing" constant="7" id="O4q-zA-8ma"/>
                                         <constraint firstItem="xT6-eL-XdL" firstAttribute="top" secondItem="KTn-Mt-dVg" secondAttribute="bottom" constant="7" id="RDI-XJ-LCx"/>
                                         <constraint firstItem="iOf-W7-dho" firstAttribute="trailing" secondItem="k44-T2-Vcn" secondAttribute="trailingMargin" constant="7" id="Y62-wd-Dwf"/>
                                         <constraint firstItem="eqq-wZ-qbx" firstAttribute="leading" secondItem="k44-T2-Vcn" secondAttribute="leadingMargin" id="aNv-U0-dDE"/>
                                         <constraint firstItem="iOf-W7-dho" firstAttribute="top" secondItem="KTn-Mt-dVg" secondAttribute="bottom" constant="7" id="aoz-LN-IxE"/>
+                                        <constraint firstItem="KTn-Mt-dVg" firstAttribute="top" secondItem="QeH-50-8bM" secondAttribute="bottom" constant="4" id="eGm-m9-xMt"/>
                                         <constraint firstItem="KTn-Mt-dVg" firstAttribute="top" secondItem="eeE-m7-Ajg" secondAttribute="bottom" constant="4" id="kZf-fw-D3m"/>
                                         <constraint firstAttribute="trailing" secondItem="KTn-Mt-dVg" secondAttribute="trailing" constant="7" id="kxz-Qc-EAz"/>
                                         <constraint firstItem="eeE-m7-Ajg" firstAttribute="top" secondItem="k44-T2-Vcn" secondAttribute="top" id="m0e-0t-qgx"/>
+                                        <constraint firstItem="QeH-50-8bM" firstAttribute="top" secondItem="k44-T2-Vcn" secondAttribute="top" id="mis-K5-Mr5"/>
                                         <constraint firstItem="eqq-wZ-qbx" firstAttribute="top" secondItem="k44-T2-Vcn" secondAttribute="topMargin" id="mqV-uJ-CH5"/>
-                                        <constraint firstAttribute="trailing" secondItem="eeE-m7-Ajg" secondAttribute="trailing" constant="7" id="o5T-wk-QgX"/>
                                         <constraint firstItem="eeE-m7-Ajg" firstAttribute="leading" secondItem="eqq-wZ-qbx" secondAttribute="trailing" constant="7" id="plt-Dv-vh9"/>
                                         <constraint firstItem="iOf-W7-dho" firstAttribute="bottom" secondItem="k44-T2-Vcn" secondAttribute="bottomMargin" constant="7" id="z8j-ho-l5A"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="favoriteButton" destination="iOf-W7-dho" id="ejg-Ho-jwu"/>
                                     <outlet property="profileImageView" destination="eqq-wZ-qbx" id="8ju-NP-7B3"/>
+                                    <outlet property="reTweetButton" destination="xT6-eL-XdL" id="2sU-Oa-qe1"/>
+                                    <outlet property="timeLabel" destination="QeH-50-8bM" id="aWp-jv-M7J"/>
                                     <outlet property="tweetLabel" destination="KTn-Mt-dVg" id="WTM-oJ-P0v"/>
                                     <outlet property="userNameLabel" destination="eeE-m7-Ajg" id="W5B-LI-9VL"/>
                                 </connections>
