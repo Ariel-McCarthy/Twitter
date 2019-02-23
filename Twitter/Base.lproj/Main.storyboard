@@ -60,7 +60,7 @@
         <scene sceneID="thF-SK-b67">
             <objects>
                 <tableViewController id="UIe-TW-NuT" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vih-Co-R0E">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vih-Co-R0E" userLabel="HomeTableView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -151,10 +151,6 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="UIe-TW-NuT" id="fGe-E4-xbY"/>
-                            <outlet property="delegate" destination="UIe-TW-NuT" id="duW-Fm-kXA"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="c8m-7t-zwf">
                         <barButtonItem key="leftBarButtonItem" title="Create Tweet" id="vju-7J-5sh">
