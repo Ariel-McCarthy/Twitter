@@ -29,6 +29,14 @@ class TweetTableViewCell: UITableViewCell {
                 print("Error: \(error)")
             })
         }
+        else
+        {
+            TwitterAPICaller.client?.unfavoriteTweet(tweetId: tweetId, success: {
+                self.setFavorite(false)
+            }, failure: { (error) in
+                print("Error: \(error)")
+            })
+        }
     }
     @IBAction func reTweeting(_ sender: Any)
     {
